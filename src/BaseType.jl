@@ -14,7 +14,7 @@ For example,
     Float32 => Float32,
     Float32 => Float32,
     Array{Float64,1} => Float64,
-    ComplexF64 => ComplexF64,
+    ComplexF64 => Float64,
     Dual{Int64} => Int64,
     Quantity{Float32} => Float32,
 ]
