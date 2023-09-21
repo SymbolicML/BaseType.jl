@@ -20,9 +20,9 @@ For example,
 ]
 ```
 """
-function base_numeric_type(::Type{T}) where {T}
+@generated function base_numeric_type(::Type{T}) where {T}
     params = T isa UnionAll ? T.body.parameters : T.parameters
-    return isempty(params) ? T : first(params)
+    return isempty(params) ? :($T) : :($(first(params)))
 end
 base_numeric_type(x) = base_numeric_type(typeof(x))
 

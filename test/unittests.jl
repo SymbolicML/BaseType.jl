@@ -25,12 +25,8 @@ expected_type_pairs = [
 for (x, y) in expected_type_pairs
     @eval @test base_numeric_type($x) == $y
     # Make sure compiler can inline it:
-    if VERSION >= v"1.10"
-        @eval @inferred $y base_numeric_type($x)
-    end
+    @eval @inferred $y base_numeric_type($x)
 end
 
 @test base_numeric_type(1.5DynamicQuantities.u"km/s") == base_numeric_type(typeof(1.5DynamicQuantities.u"km/s"))
-if VERSION >= v"1.10"
-    @inferred base_numeric_type(1.5DynamicQuantities.u"km/s")
-end
+@inferred base_numeric_type(1.5DynamicQuantities.u"km/s")
