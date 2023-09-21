@@ -21,7 +21,6 @@ For example,
 | `Measurement{Float32}` | `Float32` |
 | `Dual{BigFloat}` | `BigFloat` |
 | `Rational{Int8}` | `Int8` |
-| `Dict{Int64,Float64}` | `Int64` |
 | `Quantity{Float32,Dimensions}` | `Float32` |
 
 Packages should write a method to `base_numeric_type`

@@ -18,7 +18,6 @@ For example,
 | `Set{Float32}` | `Float32` |
 | `Measurement{Float32}` | `Float32` |
 | `Rational{Int8}` | `Int8` |
-| `Dict{Int64,Float64}` | `Int64` |
 | `Dual{BigFloat}` | `BigFloat` |
 | `Quantity{Float32,Dimensions}` | `Float32` |
 """
