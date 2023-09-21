@@ -31,4 +31,6 @@ for (x, y) in expected_type_pairs
 end
 
 @test base_numeric_type(1.5DynamicQuantities.u"km/s") == base_numeric_type(typeof(1.5DynamicQuantities.u"km/s"))
-@inferred base_numeric_type(1.5DynamicQuantities.u"km/s")
+if VERSION >= v"1.10"
+    @inferred base_numeric_type(1.5DynamicQuantities.u"km/s")
+end
