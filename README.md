@@ -4,7 +4,7 @@
 [![Build Status](https://github.com/SymbolicML/BaseType.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/SymbolicML/BaseType.jl/actions/workflows/CI.yml?query=branch%3Amain)
 [![Aqua](https://raw.githubusercontent.com/JuliaTesting/Aqua.jl/master/badge.svg)](https://github.com/JuliaTesting/Aqua.jl)
 
-This package defines a tiny function `base_numeric_type` that
+This package exports a tiny function `base_numeric_type` that
 extracts the base numeric type from a possible container type `T`:
 
 - `base_numeric_type(::Type{T}) where {T}`
