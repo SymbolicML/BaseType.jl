@@ -20,9 +20,9 @@ For example,
 ]
 ```
 """
-function base_numeric_type(x::Type)
-    params = x isa UnionAll ? x.body.parameters : x.parameters
-    return length(params) == 0 ? x : first(params)
+function base_numeric_type(::Type{T}) where {T}
+    params = T isa UnionAll ? T.body.parameters : T.parameters
+    return isempty(params) ? T : first(params)
 end
 base_numeric_type(x) = base_numeric_type(typeof(x))
 

@@ -8,7 +8,6 @@ using Unitful: Unitful
 
 expected_type_pairs = [
     Float32 => Float32,
-    Float32 => Float32,
     Array{Float64,1} => Float64,
     ComplexF64 => Float64,
     Matrix{ComplexF64} => ComplexF64,
@@ -26,7 +25,7 @@ expected_type_pairs = [
 for (x, y) in expected_type_pairs
     @eval @test base_numeric_type($x) == $y
     # Make sure compiler can inline it:
-    @eval @inferred typeof($y) base_numeric_type($x)
+    @eval @inferred $y base_numeric_type($x)
 end
 
 @test base_numeric_type(1.5DynamicQuantities.u"km/s") == base_numeric_type(typeof(1.5DynamicQuantities.u"km/s"))
