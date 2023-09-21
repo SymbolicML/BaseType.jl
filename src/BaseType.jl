@@ -9,16 +9,18 @@ export base_numeric_type
 Extract the base numeric type from a possible container type `T`.
 
 For example,
-```julia
-[
-    Float32 => Float32,
-    Float32 => Float32,
-    Array{Float64,1} => Float64,
-    ComplexF64 => Float64,
-    Dual{Int64} => Int64,
-    Quantity{Float32} => Float32,
-]
-```
+
+| Input Type | Output Type |
+|---|---|
+| `Float32` | `Float32` |
+| `ComplexF32` | `Float32` |
+| `Array{ComplexF32,1}` | `ComplexF32` |
+| `Set{Float32}` | `Float32` |
+| `Measurement{Float32}` | `Float32` |
+| `Rational{Int8}` | `Int8` |
+| `Dict{Int64,Float64}` | `Int64` |
+| `Dual{BigFloat}` | `BigFloat` |
+| `Quantity{Float32,Dimensions}` | `Float32` |
 """
 @generated function base_numeric_type(::Type{T}) where {T}
     params = T isa UnionAll ? T.body.parameters : T.parameters
