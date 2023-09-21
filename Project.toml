@@ -11,9 +11,8 @@ Aqua = "4c88cf16-eb10-579e-8560-4a9242c79595"
 DualNumbers = "fa6b7ba4-c1ee-5f82-b5fc-ecf0adba8f74"
 DynamicQuantities = "06fc5a27-2a28-4c7c-a15d-362465fb6821"
 Measurements = "eff96d63-e80a-5855-80a2-b1b0885c5ab7"
-StaticArrays = "90137ffa-7385-5640-81b9-e52037218182"
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 Unitful = "1986cc42-f94f-5a68-af5c-568840ba703d"
 
 [targets]
-test = ["Aqua", "DualNumbers", "DynamicQuantities", "Measurements", "StaticArrays", "Test", "Unitful"]
+test = ["Aqua", "DualNumbers", "DynamicQuantities", "Measurements", "Test", "Unitful"]
