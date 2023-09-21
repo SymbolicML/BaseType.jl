@@ -4,7 +4,7 @@ CurrentModule = BaseType
 
 # BaseType
 
-Documentation for [BaseType](https://github.com/MilesCranmer/BaseType.jl).
+Documentation for [BaseType](https://github.com/SymbolicML/BaseType.jl).
 
 ```@index
 ```

@@ -1,8 +1,8 @@
 # BaseType.jl
 
-[![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://MilesCranmer.github.io/BaseType.jl/stable/)
-[![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://MilesCranmer.github.io/BaseType.jl/dev/)
-[![Build Status](https://github.com/MilesCranmer/BaseType.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/MilesCranmer/BaseType.jl/actions/workflows/CI.yml?query=branch%3Amain)
+[![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://SymbolicML.org/BaseType.jl/stable/)
+[![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://SymbolicML.org/BaseType.jl/dev/)
+[![Build Status](https://github.com/SymbolicML/BaseType.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/SymbolicML/BaseType.jl/actions/workflows/CI.yml?query=branch%3Amain)
 [![Aqua](https://raw.githubusercontent.com/JuliaTesting/Aqua.jl/master/badge.svg)](https://github.com/JuliaTesting/Aqua.jl)
 
 This package defines a tiny function `base_numeric_type` that
