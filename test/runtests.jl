@@ -6,5 +6,7 @@ using Aqua
     @testset "Code quality (Aqua.jl)" begin
         Aqua.test_all(BaseType)
     end
-    # Write your tests here.
+    @testset "Unit tests" begin
+        include("unittests.jl")
+    end
 end
