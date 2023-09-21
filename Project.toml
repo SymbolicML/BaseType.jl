@@ -1,0 +1,14 @@
+name = "BaseType"
+uuid = "7fbed51b-1ef5-4d67-9085-a4a9b26f478c"
+authors = ["MilesCranmer <miles.cranmer@gmail.com> and contributors"]
+version = "0.1.0"
+
+[compat]
+julia = "1"
+
+[extras]
+Aqua = "4c88cf16-eb10-579e-8560-4a9242c79595"
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Aqua", "Test"]
