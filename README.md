@@ -13,20 +13,22 @@ extracts the base numeric type from a numeric type `T`:
 For example,
 
 | Input Type | Output Type |
-|---|---|
+|:-:|---|
 | `Float32` | `Float32` |
 | `ComplexF32` | `Float32` |
 | `Measurement{Float32}` | `Float32` |
 | `Dual{BigFloat}` | `BigFloat` |
 | `Rational{Int8}` | `Int8` |
-| `Quantity{Float32,Dimensions}` | `Float32` |
+| `Quantity{Float32, ...}` | `Float32` |
+| `Quantity{Measurement{Float32}, ...}` | `Float32` |
+| `Dual{Complex{Float32}}` | `Float32` |
 
-Packages should write a method to `base_numeric_type`
-when the base type of a numeric type
-is not the first parametric type.
+The standard behavior is to return the *first* type parameter,
+or, if that type has parameters of its own, to recursively
+take the first type parameter until a non-parameterized type is found.
+
+Packages should write a custom method for `base_numeric_type`
+if this behavior is incompatible with their type.
 For example, if you were to create a quantity-like type
-`Quantity{Dimensions,NumericType}`, you would need
-to write a custom interface.
-
-But if the base type comes first,
-the default method will work.
+`Quantity{Dimensions,T}`, for a numeric type `T`,
+you would need to write a custom interface to return `T`.
