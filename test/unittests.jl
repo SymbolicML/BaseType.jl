@@ -28,5 +28,12 @@ using Unitful: Unitful
     @inferred base_numeric_type(1.5DynamicQuantities.u"km/s")
 end
 
-@test base_numeric_type(1.5DynamicQuantities.u"km/s") == base_numeric_type(typeof(1.5DynamicQuantities.u"km/s"))
-@inferred base_numeric_type(1.5DynamicQuantities.u"km/s")
+@testset "Nested types" begin
+    # Quantity ∘ Measurement:
+    x = 5Unitful.u"m/s" ± 0.1Unitful.u"m/s"
+    @test base_numeric_type(x) == Float64
+
+    # Quantity ∘ Dual:
+    y = Dual(1.0)Unitful.u"m/s"
+    @test base_numeric_type(y) == Float64
+end
