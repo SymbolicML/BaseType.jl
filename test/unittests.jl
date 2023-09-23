@@ -1,6 +1,6 @@
 using Test: @test, @testset, @inferred
 using BaseType: base_numeric_type
-using DualNumbers: DualNumbers
+using DualNumbers: DualNumbers, Dual
 using DynamicQuantities: DynamicQuantities
 using Measurements: ±
 using Unitful: Unitful
@@ -36,4 +36,14 @@ end
     # Quantity ∘ Dual:
     y = Dual(1.0)Unitful.u"m/s"
     @test base_numeric_type(y) == Float64
+end
+
+struct Node{T}
+    child::Union{Node{T},Nothing}
+    value::T
+end
+
+@testset "Safe default behavior for recursive types" begin
+    c = Node{Int}(Node{Int}(nothing, 1), 2)
+    @test base_numeric_type(c) == Int
 end

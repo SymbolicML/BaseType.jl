@@ -30,8 +30,11 @@ base_numeric_type(x) = base_numeric_type(typeof(x))
 
 function _base_numeric_type(::Type{T}) where {T}
     params = T isa UnionAll ? T.body.parameters : T.parameters
-    return isempty(params) ? T : _base_numeric_type(first(params))
-    # TODO: deal with recursive types
+    if isempty(params)
+        return T
+    else
+        return _base_numeric_type(first(params))
+    end
 end
 
 end
