@@ -24,8 +24,8 @@ For example,
 | `Dual{Complex{Float32}}` | `Float32` |
 
 The standard behavior is to return the *first* type parameter,
-or, if that type has parameters of its own, to recursively
-take the first type parameter until a non-parameterized type is found.
+or, if that type has parameters of its own (such as `Dual{Complex{Float32}}`),
+to recursively take the first type parameter until a non-parameterized type is found.
 
 Packages should write a custom method for `base_numeric_type`
 if this behavior is incompatible with their type.
