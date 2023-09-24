@@ -18,17 +18,25 @@ For example,
 | `ComplexF32` | `Float32` |
 | `Measurement{Float32}` | `Float32` |
 | `Dual{BigFloat}` | `BigFloat` |
+| `Dual{ComplexF32}` | `Float32` |
 | `Rational{Int8}` | `Int8` |
 | `Quantity{Float32, ...}` | `Float32` |
 | `Quantity{Measurement{Float32}, ...}` | `Float32` |
-| `Dual{Complex{Float32}}` | `Float32` |
 
-The standard behavior is to return the *first* type parameter,
+Package maintainers should write a specialized method for their type.
+For example, to define the base numeric type for a dual number, one could write:
+
+```julia
+import BaseType: base_numeric_type
+
+base_numeric_type(::Type{Dual{T}}) where {T} = base_numeric_type(T)
+```
+
+It is important to call `base_numeric_type` recursively like this to deal with
+nested numeric types such as `Quantity{Measurement{T}}`.
+
+The fallback behavior of `base_numeric_type` is to return the *first* type parameter,
 or, if that type has parameters of its own (such as `Dual{Complex{Float32}}`),
 to recursively take the first type parameter until a non-parameterized type is found.
-
-Packages should write a custom method for `base_numeric_type`
-if this behavior is incompatible with their type.
-For example, if you were to create a quantity-like type
-`Quantity{Dimensions,T}`, for a numeric type `T`,
-you would need to write a custom interface to return `T`.
+This works for the vast majority of types, but it is still preferred
+if package maintainers write a specialized method.
