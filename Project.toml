@@ -1,7 +1,7 @@
 name = "BaseType"
 uuid = "7fbed51b-1ef5-4d67-9085-a4a9b26f478c"
 authors = ["MilesCranmer <miles.cranmer@gmail.com> and contributors"]
-version = "0.1.0"
+version = "0.2.0"
 
 [compat]
 julia = "1"
